@@ -1,13 +1,13 @@
 (function(exports) {
   function containsNoteContents() {
     var note = new Note("lil note");
-    assert.isTrue(note.text === "lil note");
+    assert.isTrue("contains note contents", note.text === "lil note");
   };
   containsNoteContents();
 
   function returnsNoteContents() {
     var note = new Note("YAS");
-    assert.isTrue(note.noteContent() === "YAS");
+    assert.isTrue("returns not contents", note.noteContent() === "YAS");
   }
   returnsNoteContents();
 
@@ -17,7 +17,7 @@
 (function(exports) {
   function containsArray() {
     var noteList = new NoteList;
-    assert.isTrue(Array.isArray(noteList.list));
+    assert.isTrue("contains the array", Array.isArray(noteList.list));
   }
 
   containsArray();
@@ -26,7 +26,7 @@
     var noteList = new NoteList;
     var note = new Note("ohyas");
     noteList.store(note);
-    assert.isTrue(noteList.list.includes(note));
+    assert.isTrue("stores notes", noteList.list.includes(note));
   }
 
   storesNotes();
@@ -36,7 +36,7 @@
     var noteList = new NoteList;
     var note = new Note('Yas');
     noteList.store(note);
-    assert.isTrue(noteList.show() === "Yas");
+    assert.isTrue("shows a note", noteList.show() === "Yas");
   }
 
   showsOneNote();
@@ -47,8 +47,7 @@
     var note2 = new Note('Nope');
     noteList.store(note);
     noteList.store(note2);
-    console.log(noteList.show());
-    assert.isTrue(noteList.show() === '${note.text}\n${note2.text}');
+    assert.isTrue("shows two notes", noteList.show() === '${note.text}\n${note2.text}');
   }
 
   showsTwoNotes();
