@@ -22,32 +22,29 @@
 
   containsArray();
 
-  function storesNotes() {
+  function createsAndStoresNotes() {
     var noteList = new NoteList;
-    var note = new Note("ohyas");
-    noteList.store(note);
-    assert.isTrue("stores notes", noteList.list.includes(note));
+    noteList.store("ohyas");
+    assert.isTrue("creates and stores Notes objects", noteList.list[0] instanceof Note);
+    assert.isTrue("Note objects have text attr set up correctly", noteList.list[0].text === "ohyas");
   }
 
-  storesNotes();
+  createsAndStoresNotes();
 
 
   function showsOneNote() {
     var noteList = new NoteList;
-    var note = new Note('Yas');
-    noteList.store(note);
-    assert.isTrue("shows a note", noteList.show() === "Yas");
+    note = noteList.store('Yas');
+    assert.isTrue("shows a note", noteList.show().includes(note));
   }
 
   showsOneNote();
 
   function showsTwoNotes() {
     var noteList = new NoteList;
-    var note = new Note('Yas');
-    var note2 = new Note('Nope');
-    noteList.store(note);
-    noteList.store(note2);
-    assert.isTrue("shows two notes", noteList.show() === '${note.text}\n${note2.text}');
+    note = noteList.store('Yas');
+    note2 = noteList.store('Nope');
+    assert.isTrue("shows two notes", noteList.show().includes(note) && noteList.show().includes(note2));
   }
 
   showsTwoNotes();
