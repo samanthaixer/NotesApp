@@ -1,11 +1,11 @@
 
 var assert = {
   isTrue: function(desc = "DESCRIPTION", assertionToCheck) {
-    console.log(desc);
     if (!assertionToCheck) {
-      console.log("Failure: " + assertionToCheck + " response to test");
+      console.log("%c " + desc + ": Failed. " + assertionToCheck + " response to test",
+                  'color: red');
     } else {
-      console.log("Test passed!");
+      console.log("%c " + desc + ": Test passed!", 'color: green');
     }
   }
 };
