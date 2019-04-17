@@ -4,11 +4,13 @@
   function NoteList(note = Note){
     this.list = [];
     this.note = note;
+    this.counter = 0;
   };
 
   NoteList.prototype.store = function(text){
-    note = new this.note(text);
+    note = new this.note(text, this.counter);
     this.list.push(note);
+    this.counter += 1;
     return note;
   };
 
