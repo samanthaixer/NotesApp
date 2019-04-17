@@ -18,6 +18,3 @@
 
   exports.NoteListView = NoteListView;
 })(this);
-
-
-// <li><div>${note}</div></li>
