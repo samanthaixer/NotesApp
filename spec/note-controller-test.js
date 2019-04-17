@@ -17,7 +17,7 @@
 
   function testInnerHTMLOfElementChanges() {
     var noteList = new NoteList();
-    noteList.store("Favourite drink: prosecco");
+    noteList.store("Fave drink: prosecco");
     var noteController = new NoteController(noteList);
 
     var elementDouble = function() {
@@ -26,7 +26,7 @@
 
     noteController.updateDOM(elementDouble);
 
-    assert.isTrue("NoteController changes the inner HTML of an element", elementDouble.innerHTML === "<ul><li><div>Favourite drink: prosecco</div></li></ul>")
+    assert.isTrue("NoteController changes the inner HTML of an element", elementDouble.innerHTML === "<ul><li><div>Fave drink: prosecco</div></li></ul>")
   }
 
   testCanBeInstantiated();

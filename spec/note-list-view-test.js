@@ -26,4 +26,14 @@
   }
 
   testTwoItemHTMLList();
+
+  function testLongNoteHTML() {
+    var noteList = new NoteList();
+    noteList.store("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
+    var noteListView = new NoteListView(noteList);
+    assert.isTrue("only returns first 20 characters of note into HTML list item", noteListView.createHTML() === "<ul><li><div>Lorem Ipsum is simpl</div></li></ul>")
+  }
+
+  testLongNoteHTML();
+
 })(this);
